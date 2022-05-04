@@ -18,6 +18,14 @@ db.Answer = initAnswerModel(sequelize, Sequelize.DataTypes);
 db.Question = initQuestionModel(sequelize, Sequelize.DataTypes);
 db.Experience = initExperienceModel(sequelize, Sequelize.DataTypes);
 
+// define relationships b/w tables
+db.Category.hasMany(db.Question);
+db.Category.hasMany(db.Experience);
+db.Question.belongsTo(db.Category);
+db.Experience.belongsTo(db.Category);
+db.Question.hasMany(db.Answer);
+db.Answer.belongsTo(db.Question);
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
