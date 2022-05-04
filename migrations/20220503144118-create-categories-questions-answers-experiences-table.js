@@ -21,7 +21,7 @@ module.exports = {
 
     });
     // questions table
-        await queryInterface.createTable('questions', {
+    await queryInterface.createTable('questions', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -31,7 +31,7 @@ module.exports = {
       question: {
         type: Sequelize.STRING,
       },
-       category_id: {
+      category_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'categories',
@@ -60,7 +60,7 @@ module.exports = {
       experience: {
         type: Sequelize.STRING,
       },
-       category_id: {
+      category_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'categories',
@@ -89,7 +89,7 @@ module.exports = {
       answer: {
         type: Sequelize.STRING,
       },
-       question_id: {
+      question_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'questions',
@@ -108,9 +108,9 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("answers");
-    await queryInterface.dropTable("questions");
-    await queryInterface.dropTable("experiences")
+    await queryInterface.dropTable('answers');
+    await queryInterface.dropTable('questions');
+    await queryInterface.dropTable('experiences');
     await queryInterface.dropTable('categories');
   },
 };
